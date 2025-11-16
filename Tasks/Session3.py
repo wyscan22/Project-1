@@ -110,6 +110,3 @@ class RectCoordinates:
             return result
         elif unit == "deg":
             return result * 180 / math.pi
-
-A = RectCoordinates(3, 4)
-print(A.reference_angle("deg"))
