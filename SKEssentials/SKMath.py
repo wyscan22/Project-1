@@ -1,10 +1,45 @@
-import functools
+#! SKMath Version 0.0
+
 import math
 
-def prod(*numbers):
-    product = 1
-    for n in numbers: product *= n
-    return product
+class MathError:
+    def __init__(self):
+        pass
+    def __str__(self):
+        return "MathError"
+
+class NaN(MathError):
+    def __init__(self):
+        super().__init__()
+    def __str__(self):
+        return "NaN"
+
+    def __add__(self, other):
+        return NaN()
+    def __radd__(self, other):
+        return NaN()
+    def __neg__(self):
+        return NaN()
+    def __sub__(self, other):
+        return NaN()
+    def __rsub__(self, other):
+        return NaN()
+    def __mul__(self, other):
+        return NaN()
+    def __rmul__(self, other):
+        return NaN()
+    def __truediv__(self, other):
+        return NaN()
+    def __rtruediv__(self, other):
+        return NaN()
+    def __floordiv__(self, other):
+        return NaN()
+    def __rfloordiv__(self, other):
+        return NaN()
+    def __mod__(self, other):
+        return NaN()
+    def __rmod__(self, other):
+        return NaN()
 
 def near_int(number):
     return math.floor(number + 0.5)
@@ -216,14 +251,8 @@ class Matrix:
         else:
             return (1 / self.det()) * self.matrix_of_minors().checker().T()
 
-
 def IMatrix(n):
     result = Matrix(rows = n, columns = n)
     for i in range(n):
         result.array[i][i] = 1
     return result
-
-
-A = Matrix([[1, 2, 0], [4, 0, 6], [0, 8, 9]])
-A *= A.inverse()
-print(A)
