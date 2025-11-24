@@ -1,5 +1,3 @@
-#! SKMath Version 0.0
-
 import math
 
 class MathError:
@@ -141,11 +139,11 @@ class Matrix:
                 if col != 0: ss += " "
                 ss += str(e).rjust(n[col])
             if row == 0:
-                ss = "┌ " + ss + " ┐"
+                ss = "- " + ss + " -"
             elif row == self.rows - 1:
-                ss = "\n└ " + ss + " ┘"
+                ss = "\n- " + ss + " -"
             else:
-                ss = "\n│ " + ss + " │"
+                ss = "\n| " + ss + " |"
             string += ss
         return string
 
@@ -256,3 +254,5 @@ def IMatrix(n):
     for i in range(n):
         result.array[i][i] = 1
     return result
+
+print(IMatrix(5))

@@ -1,0 +1,3 @@
+em pee kay
+gee pee kay
+Error: ZeroDivisionError (division by zero)
